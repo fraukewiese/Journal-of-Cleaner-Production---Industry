@@ -303,23 +303,105 @@ For an integrated modelling approach, a high level of detail required for
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Case study / empirical data} \label{datadescr}
-%A Theory section should extend, not repeat, the background to the article already dealt with in the Introduction and lay the foundation for further work. In contrast, a Calculation section represents a practical development from a theoretical basis.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Structure of the Danish Industry}
-everything already written above?
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In this paper, Denmark is taken as a case study for modelling the transition to carbon neutrality in the industrial sector. On one hand Denmark covers a wide range of different industries but  and on the other hand the amount of industrial processes still possible to handle to get an impression of the effects of modelling it more in detail in the integrated energy system. Furthermore data availability in Denmark is extensive compared to other countries. This makes it an suitable focus area, in which data processing and modelling methods can be tested with real data, that is still manageable. However, methods can be principally applied to other areas.
 
 \subsection{Overview Data Sources and Processing}
-adapte chart from presentation
+The Danish case study is based on the following main datasets:
+\begin{itemize}
+ \item Yearly Danish energy usage by industrial group (db117-grouping) and fuel type (..different fuels)
+ \item End-use connected to fuel type and industry groupings for a specific year (2012) 
+ \item Danish companies including address, industry group and number of employees
+ \item Adress database connecting the address to geographic location
+ \item Geographic location and extension of district heat areas
+ \item Conversion potential for electrification and biomass in shares per industry grouping
+ \item Hourly gas consumption profiles of gas consumers including the information of the industry group affiliation
+\end{itemize}
+
+As far as possible, openly available data was chosen for the case study. Like that results can be scrutinized based on the open soucre code and open sources. However, consumer profiles can only be published in aggregated form.
+
+For data processing, the python packages pandas and numpy were utilized, which dataframe structure is especially suited for processing and combination of different data source wiht a satisfactory speed performance. With the objective of achieving a high re-usability and flexibility of data and scripts, the processing was modularized and split in different steps. Between the scripts, intermediate dataframes are passed. This makes the processing more efficient, since some dataframes have to be applied by different subsequent steps. This flow is illustrated in Figure ...  
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Clustering}
-Clustering end-use by heat level\\
-Fuel\\
-Industry Group\\
-Geography - see next
+\subsection{Energy use}
+The energy consumption by industry group and fuel type is published by Statistics Denmark on a yearly basis. This data is reliably and continously available and the structure of the industry grouping follows the db117-code which is widely applied for identifying the affiliation of companies and utilized in other data sources about the conversion potential in industry. From that dataset, public service, building and mining was excluded.
+
+On the end-use side, transport of all industry groups is excluded from the dataset and the case study focuses on electricity and heat demand. The required temperature level is decisive for which conversion options are available to reduce the use of fossil fuels. The allocation of the fuel usage in industry to different end-use categories is available for the year 2012 from the ... for a large part of Danish industry. The absolute fuel consumption numbers per end-use, fuel and industry group were converted to shares relating to industry groups and fuel usage. Due to the fact that the industry groups were choses slightly different than in Statistics Danmarks, this had to be accounted for. Also, fuels and industry grouping had to be aligned. This calculation can be applied to each available year of the Statistics Denmark data, so that after this calculation step the energy usage per industry group, fuel and end-use is available for different years. It has to be mentioned that the division has to be adapted if the end-use within an industry group changes significantly. Growth of industry groups and thus energy usage increase would be divided by the same end-use allocation.
+
+Derived from the conceptual model, we group the end-use heat demand into space heat, process heat low and process heat high. This was considered detailed enough to caputure the main differences between the conversion option while still modelwise manageable. ...end-use heat categories were available from the main data, which are - depending on their required temperature level aggregated as displayed in Table ...
+
+\begin{table}
+\begin{tabular}{l | c | c}
+End-use & Temperature level [$^{\circ}$C] & Model heat type\\
+\hline \hline
+Space heating & 50-90 & space  \\ 
+Distillation & 50-100 & process low \\
+Heating/Boiling & mostly 70-110 & process low \\
+Drying & about 100 & process low \\
+Inspissation & 130 & process low \\ 
+Burning/Sintering & more than 250 & process high \\ 
+Melting/Casting & more than 300 & process high  
+\end{tabular}
+\caption{Clustering end-use by heat level. Source for process heat levels: \cite{VM2015}}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Profiles}
+\subsubsection{Demand profiles: Electricity}
+
+The following figures show the variability of the resulting electricity profiles. To illustrate the main patterns, the frequency distribution of the relative consumption values over the whole year is given as boxplots aggregated by the main industry groups (\ref{fig:boxplots}). Seasonal variation of the electricity demand differing by industry group is shown in Figure \ref{fig:trendlines}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/profiles/boxplots.pdf}
+\caption{Boxplots of relative electricity consumption. Own calculations based on \cite{Energinet.dk,NordPool2016,ElforbrugsPanelerne2015,Andersen2013a,Andersen2013b,VM2015}}
+\label{fig:boxplots} 
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/profiles/trendlines.pdf}
+\caption{Relative variation of seasonal electricity consumption, trend-lines (fit to the 18th order). Own calculations based on \cite{Energinet.dk,NordPool2016,ElforbrugsPanelerne2015,Andersen2013a,Andersen2013b,VM2015}}
+\label{fig:trendlines}
+\end{figure}
+
+\subsubsection{Demand profiles: Space heat}
+Figure \ref{fig:heat_space_year} and \ref{fig:heat_space_week} show the derived profiles of space heating. There is a clear indication of the seasonal and the weekly variation.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/profiles/heatprofile_space_year_perc.pdf}
+\caption{Yearly scale. Own calculations based on data from \cite{DanskGasDistribution2016,VM2015}}
+\label{fig:heat_space_year}
+\end{figure}
+	
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/profiles/heatprofile_space_week_perc_noserv.pdf}
+\caption{Sample week. Own calculations based on data from \cite{DanskGasDistribution2016,VM2015}}
+\label{fig:heat_space_week}
+\end{figure}
+
+\subsubsection{Demand profiles: Process heat}
+For process heating the variation due to work hours according to holidays (Figure \ref{fig:heat_process_year} and due to the weekly routine (Figure \ref{fig:heat_process_week} is clearly distinguishable.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/profiles/heatprofile_process_year_perc.pdf}\\
+\caption{Yearly scale. Own calculations based on data from \cite{DanskGasDistribution2016,VM2015}}
+\label{fig:heat_process_year}
+\end{figure}
+	
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/profiles/heatprofile_process_week_perc_noserv.pdf}\\
+\caption{Sample week. Own calculations based on data from \cite{DanskGasDistribution2016,VM2015}}
+\label{fig:heat_process_week}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -329,8 +411,8 @@ from addresses, companies - location - DH areas (could also be done for gas area
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Decarbonisation option potentials}
+maybe a table with the different options and if they are applicable for process heat high, low and space heat and make an indication if they are rather expensive or rather cheap.
 
-In this paper, Denmark is taken as a case study for modelling the transition to carbon neutrality in the industrial sector. On one hand Denmark covers a wide range of different industries but  and on the other hand the amount of industrial processes still possible to handle to get an impression of the effects of modelling it more in detail in the integrated energy system. Furthermore data availability in Denmark is extensive compared to other countries. This makes it an suitable focus area, in which data processing and modelling methods can be tested with real data, that is still manageable. However, methods can be principally applied to other areas.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
