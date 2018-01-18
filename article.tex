@@ -15,6 +15,8 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{textcomp}
 \modulolinenumbers[5]
 
 \renewcommand*{\sectionautorefname}{Section}
@@ -114,21 +116,21 @@ With more than 125 TWh of electricity consumption, 851 TWh of fossil fuels used 
 As for the power sector, technical options are available to decarbonise the industry. The three main established categories are (i) electrification, (ii) fuel substitution and (iii) improved energy efficiency \cite{Lechtenbohmer2016, Akashi2011, IRENA2014}.
 
 %ELECTRIFICATION
-Given the increasing share of renewable energy technologies in the energy systems, renewable electricity is expected to replace both fossil fuels used as energy and as feedstock in a near future\cite{Lechtenbohmer2015, EnergyCommission2017, Energikommissionen2017, Lin2017}. \cite{Lechtenbohmer2016} have estimated that, in a simulated 2050 scenario, a deep decarbonisation via electrification of the industry can lead up to almost 300 Mt of $CO_2$ direct savings for the EU28. Also, \cite{IRENA2014} projects a future increase of the share of electricity use in the industrial sector from about 10\%-15\% in 1980s, to 25\%-30\% by 2030.
+Given the increasing share of renewable energy technologies in the energy systems, electrified processes powered by renewable electricity are expected to replace both fossil fuels used as energy and as feedstock in a near future \cite{Lechtenbohmer2015, EnergyCommission2017, Energikommissionen2017, Lin2017}. \cite{Lechtenbohmer2016} have estimated that, in a simulated 2050 scenario, a deep decarbonisation via electrification of the industry can lead up to almost 300 Mt of $CO_2$ direct savings for the EU28. Also, \cite{IRENA2014} projects a future increase of the share of electricity use in the industrial sector from about 10\%-15\% in 1980s, to 25\%-30\% by 2030.
 \\
 %FUEL SUBSTITUTION
-Fuel substitution is also widely considered for future scenarios \cite{Lin2016,Rehfeldt2016}.  \cite{Iea2012} considers that switching fuels and feedstock to renewable fuels (e.g. biogas or hydrogen) can account for 300 $MtCO_2$-eq of emission reduction in a 4 degrees scenario. Similar analysis performed in Italy \cite{Enea2016} and England \cite{Pye2015}, report fuel switching as a main pillars for the transition to a decarbonised energy future.
+Fuel substitution is also widely considered for future scenarios \cite{Lin2016,Rehfeldt2016}. \cite{Iea2012} considers that switching fuels and feedstock to renewable fuels (e.g. biogas or hydrogen) can account for 300 $MtCO_2$-eq of emission reduction in a 4 degrees scenario. Similar analyses performed in Italy \cite{Enea2016} and England \cite{Pye2015}, report fuel switching as a main pillars for the transition to a decarbonised energy future.
 \\
 %ENERGY EFFICIENCY
-Although studies have acknowledge that the industrial energy efficiency is generally increasing for most of the processes, there is still a large unexploited potential, particularly for industries characterised by high-temperature processes. On a Danish context, \cite{Buhler2016} shows that food, paper and chemical industry are more efficient compared to others, characterised by high temperature processes. Policies in place in different countries, e.g. China \cite{Li2017,Zheng2017,Lin2017a,Miao2018,Guo2017}, Italy\cite{MazziottiGomezdeTeran2017}, Austria \cite{Karner2015} or Slovenia \cite{Pusnik2017} have proven to be an effective to reduce emission from industrial energy-related use, fostering both technology innovation and emission reduction.  
+Furthermore, although studies have acknowledge that the industrial energy efficiency is generally increasing for most of the processes, there is still a large unexploited potential, particularly for industries characterised by high-temperature processes. On a Danish context, \cite{Buhler2016} shows that food, paper and chemical industry are more efficient compared to others processes, characterised by high temperatures. Policies in place in different countries, e.g. China \cite{Li2017,Zheng2017,Lin2017a,Miao2018,Guo2017}, Italy\cite{MazziottiGomezdeTeran2017}, Austria \cite{Karner2015} or Slovenia \cite{Pusnik2017} have proven to be an effective tool to reduce emission from industrial energy-related use, fostering both technology innovation and emission reduction.  
 \\
 
-In this context of industry transformation in the EU, Denmark is striving to find solutions to reach the 2020 goals \cite{EnergyCommission2017, Energikommissionen2017}. 
-On the Danish case, examples showed that use of heat waste\cite{Buhler2017a}, the electrification\cite{DanishEnergyAgency2014a} and the adoption of energy efficiency interventions in the industry sector\cite{DEAeff18,Buhler2016} can lower the uptake of fossil fuels and the related GHG emissions. Furthermore, considering the recent developments of generation in Denmark, renewable gases have the potential to replace natural gas to some extent \cite{Schweitzer2017,Lise2017,Jensen2017}.
+In this context of international industry transformation, Denmark is striving to find solutions to reach the 2020 goals \cite{EnergyCommission2017,Energikommissionen2017}. 
+On the Danish case, examples showed that use of heat waste \cite{Buhler2017a}, the electrification \cite{DanishEnergyAgency2014a} and the adoption of energy efficiency interventions in the industry sector \cite{DEAeff18,Buhler2016} can lower the use of fossil fuels and the related GHG emissions. Furthermore, considering the recent developments of generation in Denmark, renewable gases have the potential to replace natural gas to some extent \cite{Schweitzer2017,Lise2017,Jensen2017}.
 Although the response of these singular studies has been promising, none of the investigations considered a proper system-wide impact resulting from changes in the industry sector. 
 As both the power and industry, the most intensive energy consuming sectors, are highly interrelated, applying decarbonisation measures in one sector can result in an impact on the other. 
-An energy system view/analysis is thus necessary to assess the size and the scale of such impact.
-Energy system models like TIMES \cite{IEA-ETSAP}, EnergyPlan \cite{DepartmentofDevelopmentandPlanning}, Balmorel \cite{balmorel} or Prime \cite{NationalTechnicalUniversityofAthens}, are suitable tools to perform these analyses \cite{Connolly2010}.
+An energy system view/analysis, employing suitable tools like TIMES \cite{IEA-ETSAP}, EnergyPlan \cite{DepartmentofDevelopmentandPlanning}, Balmorel \cite{balmorel} or Prime \cite{NationalTechnicalUniversityofAthens}, is thus necessary to assess the size and the scale of such impact.
+
 Nonetheless, although industry covers a relevant share of energy usage, the industrial sector is rather under-represented in most of the energy system models, particularly when investigating scenarios on decarbonisation pathways.
 
 For the sake of exploring industrial decarbonisation options enforcement and the related transformation of the Danish energy system, a detailed model of the industry sector is necessary. Details should thus consider not only the structure of the processes with input fuels, temperature heat levels and fuel usage characteristics, but also temporal profiles and geographical location of energy consumption.
@@ -148,22 +150,22 @@ This section provides a description of the elements characterising the Danish in
 In the literature, industry is the term that commonly refers to a diverse variety of processes characterised by high energy intensity and use. As the term does not have a standard definition, the processes considered to represent the industrial sector vary from study to study, making similar analyses on the field quite difficult to compare.
 \cite{Buhler2016} shows that, compared to other studies which considered different numbers of processes and industries accumulated in the industry sector \cite{Oladiran2007,Al-Ghandoor2010,Dincer2003,Sanaei2012}, the results derived from a more thorough approach provide additional insights and a stronger reliability. In this study, we will thus consider that industry includes agriculture, manufacturing and services; however we do not consider transportation, both as end-use and sector, within the industry sector.
 
-The Danish national version of EU's nomenclature (NACE) is the Dansk Branchekode DB07 (Danish Branch Code), a statistical classification of economic activities, that categorise each enterprise based on its main activity \cite{DanmarksStatistik2013}. 
+The Danish national version of EU's nomenclature (NACE) is the Dansk Branchekode DB07 (Danish Branch Code), a statistical classification of economic activities that categorise each enterprise based on its main activity \cite{DanmarksStatistik2013}. 
 Out of 127 groups of economic activities, detailed data on energy usage are available for 57. Each of these sectors include sector-related activities. In this study, the allocation of economic activities to the sectors differs slightly from the DB07 classification; the exact allocation can be found in the Annex of \cite{VM2015}. As refinery, public service and construction are not included in the list of sectors provided \cite{VM2015}, they will not be included in this study.
 \\
-The consumption of the 57 sector is presented as a total of 22 end-use processes supplied by 20 types of fuels. The distribution of fuels amongst the process categories is also provided \cite{VM2015}.
+The consumption of the 57 sector is available as a total of 22 end-use processes supplied by 20 types of fuels. The distribution of fuels amongst the process categories is also provided \cite{VM2015}.
 \\
-The 22 energy end-uses can be clustered in five groups: \textit{internal conversion losses}, \textit{process heating} (heating/boiling, drying, inspissation, distillation, burning/sintering, melting/casting, other process heating up to/over 150 C), \textit{space heating} and \textit{utilities} (energy for heat pumps, lightning, pumping, comfort cooling, cooling/freezing, comfort ventilation, blowers, compressed air, hydraulic machinery, other electric motors, IT and electronics, other electric consumption).
+The 22 energy end-uses can be clustered in four groups: \textit{internal conversion losses}, \textit{process heating} (heating/boiling, drying, inspissation, distillation, burning/sintering, melting/casting, other process heating up to/over 150 C), \textit{space heating} and \textit{utilities} (energy for heat pumps, lightning, pumping, comfort cooling, cooling/freezing, comfort ventilation, blowers, compressed air, hydraulic machinery, other electric motors, IT and electronics, other electric consumption).
 \\
-20 fuel types supplied for the processes include coal, fuel oil, petroleum coke, coke, diesel, gasoline (unleaded and coloured), LPG, natural gas, gas-oil, bio-gas, biomass (wood chips, wood pellets and straw), bio-oil, waste, electricity, district heating, solar heating and heat pumps.
+20 fuel types supplying processes include coal, fuel oil, petroleum coke, coke, diesel, gasoline (unleaded and coloured), LPG, natural gas, gas-oil, bio-gas, biomass (wood chips, wood pellets and straw), bio-oil, waste, electricity, district heating, solar heating and heat pumps.
 \\
-To provide a simpler visualisation of data,the 57 industrial sectors are clustered in five groups according to similarities in temporal patterns of energy consumption: agriculture, production single shift, production double shift, production triple shift and services. The underlying assumptions are based on \cite{VM2016,Wiese2017}.  
+To provide a simpler visualisation of data, the 57 industrial sectors are clustered in five groups according to similarities in temporal patterns of energy consumption: agriculture, production single shift, production double shift, production triple shift and services. The underlying assumptions behind the classification are based on \cite{VM2016,Wiese2017}.  
 
 The consumption in agriculture follows a pattern linked to seasonal dependent activities, with lower energy use during summer and higher during fall and winter. Throughout the week, the consumption is higher during the day (working hours from 6 to 18) and week days and lower by night and in the weekend.
 
 For services, the energy consumption is higher during daytime and weekdays, and lower during the nights and weekend, thus representing activities mostly conducted during normal working hours. Over the year, the energy consumption is mostly constant, apart from energy for space heating purposes.
 
-The production group includes manufacturing and extraction processes. The subdivision in single, double and triple shift is linked to the weekly activities. Therefore, single shift facilities typically operate during normal working hours in the week days and are closed during weekends/holidays; double shift have longer operating hours (about 15 hours a day), they close during the night and often during weekends/holidays;
+The production group includes manufacturing and extraction processes. The subdivision in single, double and triple shift is linked to the weekly activities. Single shift facilities typically operate during normal working hours in the week days and are closed during weekends/holidays; double shift have longer operating hours (about 15 hours a day), they close during the night and often during weekends/holidays;
 triple shift facilities run as continuous production (i.e. almost constant consumption throughout the year) and close down only few times a year. 
 Sectors belonging to this group often present a steady base-load consumption for processes such as auxiliaries or ovens. \\
 
@@ -171,20 +173,63 @@ Sectors belonging to this group often present a steady base-load consumption for
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Energy use in the Danish Industry}
 
-\begin{figure}[H]
+Based on the structure described, \autoref{total_use} illustrates the total energy use by fuel for the Danish industry groups for the year 2012.
+The industry's energy use accounts for $\sim$156 PJ, distributed between production ($\sim$88 PJ), service ($\sim$48 PJ) and agriculture ($\sim$19 PJ). In the production sector, double ($\sim$44 PJ) and triple shift ($\sim$39 PJ) cover a significant higher share compared to the single shift group ($\sim$5 PJ).
+
+\begin{figure}
+\centering
+\begin{minipage}{.5\textwidth}
   \centering
-    \includegraphics[width=\textwidth]{Img/dan_ind/overview1_singleFirst.png}
+  \includegraphics[width=\linewidth]{Img/dan_ind/overview_total.png}
+\end{minipage}%
+\begin{minipage}{.3\textwidth}
+  \centering
+  \includegraphics[width=\linewidth]{Img/dan_ind/legend}
+\end{minipage}
   \caption{Total energy use in Danish industry groups by fuel \cite{VM2015}}
   \label{total_use} 
 \end{figure}
 
-Based on the structure described, \autoref{total_use} illustrates the total energy use by fuel for the Danish industry groups.
 
-MATTIA CONTINUE
+COMMENTS FOR THE FIGURE:
+\begin{itemize}
+    \item Remove transport from fuels (transport and transport machinery) CHECK
+    \item Maybe report the percentages?
+    \item One image with bars and legend
+\end{itemize}
 
- illustrates the final energy usage by type of fuel according to the five main categories: agriculture, production single, double, triple and service. In total, the sectors' energy use account for almost 200~PJ distributed with production (excluding refinery and construction) accounting for 93~PJ, service (excluding public service) for 69~PJ and agriculture for 37~PJ. Double and triple shift groups show a significant higher share of energy consumption compared to the single shift group.
+It´s relevant to notice that the fuel consumption among the sectors is distributed un-evenly, with electricity (36\%), natural gas (21\%), district heating (15\%), gasoil/kerosene (6.4\%) and petroleum coke (4\%) covering the majority of the consumption, while the other fuels contribute partially.
 
-Agriculture and service are characterized by a great use of fossil oil (gasoline, kerosene, diesel, LPG). Natural gas is predominant in production and solid fossil fuels (petroleum coke, coal, coke) mainly in triple shift production. Renewable solid fuels have a visible share in part of the production sector (single, double) in the form of wood and in agriculture in terms of straw. In the year the data originates from (2012), biogas is not used within industry. District heating provides a significant share of energy in the service sector but plays a minor role in agriculture and production. Electricity is utilized in all sectors with the service sector being the largest consumer - one third of the service group's energy consumption.
+\autoref{heatmapagri}, \autoref{heatmapprod}, \autoref{heatmapserv} provide an indication on the fuel-use for the different industrial processes. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/dan_ind/heatmap_agri.png}
+\caption{Breakdown of energy consumption by end-use and fuel in agriculture\cite{VM2015}}
+\label{heatmapagri} 
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/dan_ind/heatmap_prod.png}
+\caption{Breakdown of energy consumption by end-use and fuel in production\cite{VM2015}}
+\label{heatmapprod} 
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/dan_ind/heatmap_serv.png}
+\caption{Breakdown of energy consumption by end-use and fuel in services\cite{VM2015}}
+\label{heatmapserv} 
+\end{figure}
+
+The heat maps, presented in three clustered groups, provide a useful indication on the most energy-intensive processes and on the most employed fuels. 
+In agriculture, most of the fuel consumption is related to heating up to 150\textdegree (51\%); in production, drying (15\%), heating/boiling (16\%) and space heating (11\%) are predominant; while in service, space heating (50\%) and lightning (17\%) together consumer more than half of the total fuels used.
+
+Furthermore, the data show an un-even distribution of fuel consumption in the various groups, with electricity (34\%) and gasoil/kerosene (25\%) being predominant in agriculture, electricity (31\%) and natural gas (31\%) in production, and electricity (50\%) and district heating (37\%) dominating the service sector.
+\\
+This preliminary description of the Danish industry poses the bases for the modelling of the sector and the investigation of decarbonisation options. Indeed, with a clear overview of the end-use processes and the related fuel consumption, the industry sector can be conveniently integrated in an energy system model. 
+The following section proposes a mathematical model for the industry sector and investigates on extensions to analyse decarbonisation options. 
 
 
 
@@ -195,21 +240,21 @@ Agriculture and service are characterized by a great use of fossil oil (gasoline
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Balmorel, an energy system model}
 
-The use on an energy system models enables to assess the role of industry in achieving pathways to decarbonised energy systems. As commodities like electricity and heat are highly related, in both power and industry sector (e.g. due to the use of heat pumps), only a simultaneous consideration can reflect the cost-minimal solutions from a system perspective. This allows to investigate what is usually defined as "socio-economic welfare maximisation" under different conditions. 
-Among the tools available in the literature \cite{Connolly2010}, the energy system model Balmorel is adopted for the analysis\cite{balmorel}.
-Balmorel is an energy system linear open source model that optimises investments and operation of power plants, storage devices and transmission lines in an international perspective\cite{Ravn2001}. 
+The use of energy system models is useful to assess the role of industry in achieving pathways to decarbonised energy systems. As commodities like electricity and heat are highly related, in both power and industry sector (e.g. due to the use of heat pumps), only a simultaneous consideration can reflect the cost-minimal solutions from a system perspective. This allows to investigate what is usually defined as "socio-economic welfare maximisation" under different conditions. 
+Among the tools available in the literature \cite{Connolly2010}, the energy system model Balmorel is adopted for the analysis \cite{balmorel}.
+Balmorel is an energy system, linear programming, open source model that optimises investments and operation of power plants, storage devices and transmission lines in an international perspective \cite{Ravn2001}. 
 The model considers a set of neighbouring countries operating in an interconnected electricity market. Each country is composed by one or several regions. Electricity can be traded and transmitted between adjacent regions, with limits imposed by given transmission capacity. 
-For instance, Denmark is modelled using two electricity zones (DK-E and DK-W), according to the Nord Pool system \cite{NordPool2016}. 
 To consider the heat sector, each electricity region is divided into several district heating areas. Heat transmission among such areas is not allowed.  
 \\
 Balmorel considers time according to years, seasons (weeks) and individual time units (hours). 
 The user can freely decide the time horizon of the analysis and the choice depends on the needs for the specific investigation. 
-The running time of the model is related with the choice of the time aggregation and it can vary from minutes to several hours.
 \\
-A different range of technologies generate heat and electricity to satisfy the energy demand. Among others there are CHP (both back-pressure and extraction), heat pumps, storage devices (for electricity and heat), and renewable based production technologies (hydro, wind, solar). The model allows to simulate scenarios where demand and supply of electricity and heat are balanced with operations and investments, considering local generation vs. import/export, price elasticity of the demand and other characteristics typical of the energy systems \cite{Munster2012}. 
+The model allows to simulate scenarios where demand and supply of electricity and heat are balanced with operations and investments, considering local generation vs. import/export, price elasticity of the demand and other characteristics typical of the energy systems \cite{Munster2012}. 
 \\
-The model relies on a set of exogenous input data, including capacities of electricity and heat generation technologies, transmissions lines and heat and power demand. Additional key assumptions relate to fuel prices, CO2 costs, taxes and support schemes are required for specific analysis
-The original data available in the model downloaded can be modified for personal application in specific projects. This allows Balmorel to be adapted for specific investigations that are not presently covered by the standard version of the model\cite{Wiese}.
+The model relies on a set of exogenous input data, including capacities of electricity and heat generation technologies, transmissions lines and heat and power demand. 
+Energy generating technologies include CHP (both back-pressure and extraction), heat pumps, storage devices (for electricity and heat), and renewable based production technologies (hydro, wind, solar).
+Additional key assumptions relate to fuel prices, CO2 costs, taxes and support schemes are required for specific analysis.
+The original data available in the model can be modified for personal application in specific analyses. This allows Balmorel to be adapted for specific investigations that are not presently covered by the standard version of the model \cite{Wiese}.
 \\
 The model has been previously applied for a wide range of studies, such as integration of renewable technologies in the energy mix, analysis of market conditions, policies implementation, future role of district heating and impact of energy efficiency technologies in the energy system \cite{Ball2007,Jensen2008,Karlsson2008,Munster2012,Munster2010,Baldini2016a}.
 In the next section, we will propose a modelling representation of the industry sector, as the Balmorel model lacks a comprehensive representation of the industry. Enhancing the model with details about industrial energy use and processes will improve the quality of the analyses and provide more details on the impact, in the energy system, of changes in the industrial sector.
@@ -263,10 +308,23 @@ For an integrated modelling approach, a high level of detail required for
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Structure of the Danish Industry}
+everything already written above?
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Overview Data Sources and Processing}
+adapte chart from presentation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Clustering}
+Clustering end-use by heat level\\
+Fuel\\
+Industry Group\\
+Geography - see next
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Geographical mapping of industrial energy consumption}
+from addresses, companies - location - DH areas (could also be done for gas areas), how many not localized, which ones taken out - employee share per group approach - verification
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -309,6 +367,7 @@ This would be nice to get, but probably only modelling possible:
     \item further research needs
 \end{itemize}
 
+\subsection{Future work}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -316,7 +375,7 @@ This would be nice to get, but probably only modelling possible:
 % The main conclusions of the study may be presented in a short Conclusions section, which may stand alone or form a subsection of a Discussion or Results and Discussion section.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Future work}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
