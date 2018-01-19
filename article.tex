@@ -355,7 +355,12 @@ Melting/Casting & more than 300 & process high
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Profiles}
+
+\textit{Take text from conference paper how profiles are derived and why profiles matter. Important: explain the basic idea behind single, double, triple shift, service}
+
 \subsubsection{Demand profiles: Electricity}
+
+\textit{Take text from conference paper how electricity profiles are derived, short}
 
 The following figures show the variability of the resulting electricity profiles. To illustrate the main patterns, the frequency distribution of the relative consumption values over the whole year is given as boxplots aggregated by the main industry groups (\ref{fig:boxplots}). Seasonal variation of the electricity demand differing by industry group is shown in Figure \ref{fig:trendlines}.
 
@@ -374,6 +379,9 @@ The following figures show the variability of the resulting electricity profiles
 \end{figure}
 
 \subsubsection{Demand profiles: Space heat}
+
+\textit{Take text from conference paper how heat profiles are derived, short.}
+
 Figure \ref{fig:heat_space_year} and \ref{fig:heat_space_week} show the derived profiles of space heating. There is a clear indication of the seasonal and the weekly variation.
 
 \begin{figure}[H]
@@ -407,16 +415,24 @@ For process heating the variation due to work hours according to holidays (Figur
 \label{fig:heat_process_week}
 \end{figure}
 
+\textit{describe which profiles we use for the model (aggregated ones)}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Geographical mapping of industrial energy consumption}
-District heating plays a major role in Denmark. ... \% of of space heat demand is supplied via ... district heat networks. Provided that the supply of the district will be transformed to completely renewable ones (source), an increased use of district heat for space and process heat for industry is an important option to reduce fossil fuel usage. The feasibility of this option depends on the location of this industrial demand. Whether the company is within or close to a district heating area decides whether this option can be used. Depending on the required temperature, heat pumps would be necessary to raise the provided temperature. The vicinity to such a network is furthermore decisive for the possibility of excess heat usage. Connection to a district heat network offers the possibility to exploit the otherwise lost heat potential beyond recycling it on site.
+District heating plays a major role in Denmark. ... \% of of space heat demand is supplied via ... district heat networks. Provided that the supply of the district will be transformed to completely renewable ones \texit{(source Maries district heat paper?)}, an increased use of district heat for space and process heat for industry is an important option to reduce fossil fuel usage. The feasibility of this option depends on the location of this industrial demand. Whether the company is located within or in vicinity to a district heating area decides whether this option can be used. Depending on the required temperature, heat pumps would be necessary to raise the provided temperature. The vicinity to such a network is furthermore decisive for the possibility of excess heat usage. Connection to a district heat network offers the possibility to exploit the otherwise lost heat potential beyond recycling it on site.
 
-The basis this localalisation is the list of companies located in Denmark which includes addresses, affiliation to detailed industry group and number of employees information \cite{virk2017}. Entries that did not have any employees reduced the list from .... to .... The geographic location (coordinates) for the remaining were derived by matching the addresses to an address list containing coordinates \cite{}. This was done via a matching operation in python.
+It is not only necessary to determine which part of industrial energy demand and excess heat can be connected to district heat in general, but also to which district heat area. Following the logic of the model Balmorel, heat can just be distributed within an Area in Balmorel. If the geographical relation between heat source and heat demand would disregarded, the effort of matching heat demand and supply temporarily would be underestimated and the potentials for district heat and usage of excess heat overestimated. The modelled Balmorel Areas in our case relate to aggregations of real Danish district heat areas. The more than 200 district heat areas are aggregated to 36 Areas for the model input. Connected district heat areas are aggregated. Small rural district heat areas are also summarized for Denmark East and Denmark West. This aggregation is a compromise between model complexity / calculation time and accurancy. Since mostly small areas are summarized, the effect on the results is minor.
 
-The method for localisation of the industry demand is based on the employee shares of industrial groups of companies.
+Concluding, the location of industrial heat utilisation related to district heat areas is thus crucial as input data for the Danish case.
 
-\textit{from addresses, companies - location - to DH areas (could also be done for gas areas), how many not localized, which ones taken out - employee share per group approach - verification}
+The basis this localalisation is the list of companies located in Denmark which includes addresses, affiliation to detailed industry group and number of employees information \cite{virk2017}. Entries that did not have any employees reduced the list from .... to .... The geographic location (coordinates) for the remaining were derived by matching the addresses to an address list containing coordinates \cite{}. This was done via a matching operation in python. \texit{State how much could not be located here?} District heat areas in Denmark are provided publicly from .... as a shapefile \cite{kortforsyningen2017} and were aggregated to the 36 areas as described in \cite{Petrovic2014} \textit{something to cite from Amalia?}. Via the coordinate information, the companies were assigned an area with a spatial join operation in the geographical software QGIS.
+
+The method for localisation of the industrial energy demand by fuel and end-use is based on the employee shares of industrial groups of companies. This method has first been used by \cite{Buehler2017} \textit{Update Source} including a description of verification of the method. When looking across different industry groups, number of employees is not a good measure for the energy usage, e.g. a work intensive group like service will have more employees per MWh/year than a production facility with high automation. However, the more detailed the distinction between industry groups is, the more similar is the employee/energy ratio. The described detail level of industrial grouping was considered sufficient for that. First, the share of employees in relation of the employees in the respective industry group was calculated for each company. Subsequently, the yearly energy demand per fuel and end-use for each industry group was assigned to the companies via the employee share. Since the area of each company has already been defined, the aggregation by area provides the energy demand per fuel and end-use by area. This is a direct input for the model.
+
+A similar approach is applied to derive the demand profiles per area. For each area, one process heat and one space heat profile is generated based on the shares the main industry groups Service, Production single, Production double and Production triple have in the industrial process and space heat demand of the area.
+
+For electricity, the same approach is use for regions. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
