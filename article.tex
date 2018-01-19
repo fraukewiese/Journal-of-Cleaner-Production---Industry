@@ -226,7 +226,11 @@ It´s relevant to notice that the fuel consumption among the sectors is distribu
 The heat maps, presented in three clustered groups, provide a useful indication on the most energy-intensive processes and on the most employed fuels. 
 In agriculture, most of the fuel consumption is related to heating up to 150\textdegree (51\%); in production, drying (15\%), heating/boiling (16\%) and space heating (11\%) are predominant; while in service, space heating (50\%) and lightning (17\%) together consumer more than half of the total fuels used.
 
+In production, there is a high diversity of end-use while the role of gas as a fule is predominant. 
+Space heating and transport dominate the total energy use in the service sector. While most space heat already supplied by district heat, natural gas is the second.
+
 Furthermore, the data show an un-even distribution of fuel consumption in the various groups, with electricity (34\%) and gasoil/kerosene (25\%) being predominant in agriculture, electricity (31\%) and natural gas (31\%) in production, and electricity (50\%) and district heating (37\%) dominating the service sector.
+
 \\
 This preliminary description of the Danish industry poses the bases for the modelling of the sector and the investigation of decarbonisation options. Indeed, with a clear overview of the end-use processes and the related fuel consumption, the industry sector can be conveniently integrated in an energy system model. 
 The following section proposes a mathematical model for the industry sector and investigates on extensions to analyse decarbonisation options. 
@@ -406,12 +410,18 @@ For process heating the variation due to work hours according to holidays (Figur
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Geographical mapping of industrial energy consumption}
-from addresses, companies - location - DH areas (could also be done for gas areas), how many not localized, which ones taken out - employee share per group approach - verification
+District heating plays a major role in Denmark. ... \% of of space heat demand is supplied via ... district heat networks. Provided that the supply of the district will be transformed to completely renewable ones (source), an increased use of district heat for space and process heat for industry is an important option to reduce fossil fuel usage. The feasibility of this option depends on the location of this industrial demand. Whether the company is within or close to a district heating area decides whether this option can be used. Depending on the required temperature, heat pumps would be necessary to raise the provided temperature. The vicinity to such a network is furthermore decisive for the possibility of excess heat usage. Connection to a district heat network offers the possibility to exploit the otherwise lost heat potential beyond recycling it on site.
+
+The basis this localalisation is the list of companies located in Denmark which includes addresses, affiliation to detailed industry group and number of employees information \cite{virk2017}. Entries that did not have any employees reduced the list from .... to .... The geographic location (coordinates) for the remaining were derived by matching the addresses to an address list containing coordinates \cite{}. This was done via a matching operation in python.
+
+The method for localisation of the industry demand is based on the employee shares of industrial groups of companies.
+
+\textit{from addresses, companies - location - to DH areas (could also be done for gas areas), how many not localized, which ones taken out - employee share per group approach - verification}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Decarbonisation option potentials}
-maybe a table with the different options and if they are applicable for process heat high, low and space heat and make an indication if they are rather expensive or rather cheap.
+\textit{maybe a table with the different options and if they are applicable for process heat high, low and space heat and make an indication if they are rather expensive or rather cheap / subsection could also be before geographical subsection}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
