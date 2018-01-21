@@ -200,6 +200,8 @@ COMMENTS FOR THE FIGURE:
 
 It´s relevant to notice that the fuel consumption among the sectors is distributed un-evenly, with electricity (36\%), natural gas (21\%), district heating (15\%), gasoil/kerosene (6.4\%) and petroleum coke (4\%) covering the majority of the consumption, while the other fuels contribute partially.
 
+
+\iffalse
 \autoref{heatmapagri}, \autoref{heatmapprod}, \autoref{heatmapserv} provide an indication on the fuel-use for the different industrial processes. The production data are reported as a single aggregated group; for the breakdown, please refer to (APPENDIX). 
 
 \begin{figure}[H]
@@ -222,10 +224,12 @@ It´s relevant to notice that the fuel consumption among the sectors is distribu
 \caption{Breakdown of energy consumption by end-use and fuel in services\cite{VM2015}}
 \label{heatmapserv} 
 \end{figure}
+\fi
 
 The heat maps, presented in three clustered groups, provide a useful indication on the most energy-intensive processes and on the most employed fuels. 
 In agriculture, most of the fuel consumption is related to heating up to 150\textdegree (51\%); in production, drying (15\%), heating/boiling (16\%) and space heating (11\%) are predominant; while in service, space heating (50\%) and lightning (17\%) together consumer more than half of the total fuels used.
 
+%top up with data
 In production, there is a high diversity of end-use while the role of gas as a fuel is predominant. 
 Space heating and transport dominate the total energy use in the service sector. While most space heat already supplied by district heat, natural gas is the second.
 
@@ -250,7 +254,7 @@ The model considers a set of neighbouring countries operating in an interconnect
 To consider the heat sector, each electricity region is divided into several district heating areas. Heat transmission among such areas is not allowed.  
 \\
 Balmorel considers time according to years, seasons (weeks) and individual time units (hours). 
-The user can freely decide the time horizon of the analysis and the choice depends on the needs for the specific investigation. 
+The user can freely decide the time horizon of the analysis and the choice depends on the needs for the specific investigation.
 \\
 The model allows to simulate scenarios where demand and supply of electricity and heat are balanced with operations and investments, considering local generation vs. import/export, price elasticity of the demand and other characteristics typical of the energy systems \cite{Munster2012}. 
 \\
@@ -264,6 +268,29 @@ In the next section, we will propose a modelling representation of the industry 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modelling of the industrial sector}
+
+The energy system model Balmorel considers the industry sector only as a part of the total heat and electricity consumption within the optimisation. Thus all the end use processes and fuel specification, previously described, are currently neglected. The black dotted line in \autoref{ensyst} represents the boundaries in the current version of Balmorel, where the industry is considered simply as part of the total energy demand . 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{Img/ind_model/IndustryEnergyFlowchart.pdf}
+\caption{Schematic of industry sector representation in Balmorel}
+\label{ensyst} 
+\end{figure}
+
+\autoref{ensyst} shows the schematic of the novel structure proposed, to consider the diverse and rich characteristics of the industry sector in the energy system model. The same structure is applied for each of the 57 sectors considered. 
+
+The first addition introduced concerns the commodities part of the energy demand: electricity, fuels and heat.
+The electricity demand now satisfies, in every single sector, the demand of the single end-uses. This addition facilitates the investigation of decarbonisation options (e.g. savings) at a later stage, as the new options can be applied directly to each end use (\textbf{maybe rewrite, the point here is that the more disaggregated is the consumption, the easier will be to investigate other options to satisfy the demand of decrease the demand}). 
+Furthermore, electricity can be either be imported by the grid, or it can be self-produced using small plants. It can also be used to run heat pumps and satisfy the heat demand, or "elevate" the quality of heat, for peculiar processes. 
+Heat, previously considered only as district heat demand, now includes three temperature levels: space heating, process heat low temperature and process heat high temperature processes.
+
+
+Electricity, heat and fuels are considered as energy inputs for the end-use processes in industry. 
+Fuels can also be used as fuel-feedstock directly for the industrial processes in the model to better represent reality. 
+Heat is separated as space and process heat and distinguished between different temperature levels. In this way, it can be supplied by different sources and technologies.
+Specific electricity profiles for the industrial sectors are the basis for the demand profiles fed into the model. Space heating for the industry sector can be supplied by district heating, but can also be self-generated, using the fuel in a plant on site to generate electricity and heat.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Modelling of decarbonisation options}
@@ -432,8 +459,9 @@ The method for localisation of the industrial energy demand by fuel and end-use 
 
 Figure .... illustrates the progressing: Company locations mapped to Balmorel heat areas. 
 
+\iffalse
 \includegraphics[scale=0.36]{img/DK_DH_Balmorel_areas2.png}
-\caption District Heat Areas in Denmark. Sources: \cite{kortforsyningen2017,forsyningsomraade2017}}
+\caption{ District Heat Areas in Denmark. Sources: \cite{kortforsyningen2017,forsyningsomraade2017}}
 
 \includegraphics[scale=0.36]{img/DK_DH_Balmorel_areas2_companies.png}
 \caption{Location of Companies. Own processing based on: \cite{kortforsyningen2017,virk2017,aws2017,Buhler2017}}
@@ -445,7 +473,7 @@ One example of resulting data from the localisation is the share of space (Figur
 
 \includegraphics[scale=0.36]{img/DK_DH_Balmorel_areas2_DH_share_PHL.png}\\
 \caption{Low process heat demand supplied by district heat. Own calulations based on: \cite{kortforsyningen2017,virk2017,Buhler2017,Petrovic2014,VM2015,StatisticsDenmark2016}}
-
+\fi
 A similar approach is applied to derive the demand profiles per area. For each area, one process heat and one space heat profile is generated based on the shares the main industry groups Service, Production single, Production double and Production triple have in the industrial process and space heat demand of the area.
 
 Yearly electricity demand and hourly profiles just have to be defined on a regional level. In the model, within Balmorel Regions, no transmission of electricity can be restricted within but just between regions. Thus, regions should be chosen in a way that bottlenecks that may occur within the scenario horizon are represented between regions. Following that rule, Denmark is modelled in two regions: Denmark East including Sealand and Denmark West including Jutland and Funen. Thus the same approach as described for heat in areas in applied in regions for localisation of electricity demand data.
