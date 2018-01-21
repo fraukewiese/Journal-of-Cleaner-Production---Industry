@@ -283,7 +283,7 @@ The energy system model Balmorel considers the industry sector only as a part of
 The first addition introduced concerns the commodities part of the energy demand: electricity, fuels and heat.
 The electricity demand now satisfies, in every single sector, the demand of the single end-uses. This addition facilitates the investigation of decarbonisation options (e.g. savings) at a later stage, as the new options can be applied directly to each end use (\textbf{maybe rewrite, the point here is that the more disaggregated is the consumption, the easier will be to investigate other options to satisfy the demand of decrease the demand}). 
 Furthermore, electricity can be either be imported by the grid, or it can be self-produced using small plants. It can also be used to run heat pumps and satisfy the heat demand, or "elevate" the quality of heat, for peculiar processes. 
-Heat, previously considered only as district heat demand, now includes three temperature levels: space heating, process heat low temperature and process heat high temperature processes. As an example how processes are categorised to these heat groups, Table \label{tab:temperature_levls} summarises the categorisation is done in the case study.
+Heat, previously considered only as district heat demand, now includes three temperature levels: space heating, process heat low temperature and process heat high temperature processes. As an example how processes are categorised to these heat groups, Table \ref{tab:temperature_levels} summarises the categorisation is done in the case study.
 
 
 Electricity, heat and fuels are considered as energy inputs for the end-use processes in industry. 
@@ -376,7 +376,7 @@ Burning/Sintering & more than 250 & process high \\
 Melting/Casting & more than 300 & process high  
 \end{tabular}
 \caption{Clustering end-use by heat level. Source for process heat levels: \cite{VM2015}}
-\label{tab:temperature_levls} 
+\label{tab:temperature_levels} 
 \end{table}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -484,6 +484,25 @@ Yearly electricity demand and hourly profiles just have to be defined on a regio
 \subsection{Decarbonisation option potentials}
 \textit{maybe a table with the different options and if they are applicable for process heat high, low and space heat and make an indication if they are rather expensive or rather cheap / subsection could also be before geographical subsection}
 
+\begin{table}
+\begin{tabular}{l | c | c | c | c}
+Decarbonisation category & Space heat & Proces heat low & Process heat high & Electricity \\
+\hline \hline
+Energy savings & \textit{rough estimate of what is possible?} & \textit{rough estimate of what is possible?} & \textit{rough estimate of what is possible?} & \textit{rough estimate of what is possible?}\\
+Excess heat usage & na & if user in vicinity or in DH-area & if user in vicinity or in DH-area & na\\
+District heat & if located in DH-area & if located in DH-area; heat pump required & na & na \\
+Electrification & Heat pump & Heat pump or electric heat & Electric heat & na\\
+Biomass & price range; restricted potential & \textit{maybe info from VEtilProcess?}; price range: \textit{add range and sources}; restricted potential & same as for PHL & decided on energy system level \\
+Biogas & vicinity to source required & depending on devices \textit{gas quality issue?} & depending on devices \textit{gas quality issue?} & decided on energy system level \\
+Renewable gas & Euro/GJ \textit{add Idas price} & Euro/GJ & Euro/GJ & decided on system level\\
+\end{tabular}
+\caption{Overview of decarbonisation options in industrial energy use}
+\label{tab:temperature_levels} 
+\end{table}
+
+Heat pumps play decisive roles as the overview table show. It has to be noted that it is decisive for the modelling to distinguish the technical properties and the coefficient of performance (COP) according on the application area. Heat pumps are available for different temperature levels and their COP differs depending on input and output temperature. From \cite{VM2015}, COP of heat pumps can be roughly derived per industry group by dividing the heat output by the electricity output. These numbers can be utilised as check values for the heat pumpt assumptions.
+
+As long as the industry receives electricity from the main grid, it depends on the electricity supply system how high the renewable share is in the electricity mix and how expensive the elctricity is. In the model maximising social welfare, saving options can thus directly compete costwise. This stresses the importance of modelling industry within the integrated energy system and not isolated. Saving options are a possibility in 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
