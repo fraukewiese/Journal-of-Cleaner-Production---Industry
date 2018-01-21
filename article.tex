@@ -389,7 +389,7 @@ Melting/Casting & more than 300 & process high
 
 \textit{Take text from conference paper how electricity profiles are derived, short}
 
-The following figures show the variability of the resulting electricity profiles. To illustrate the main patterns, the frequency distribution of the relative consumption values over the whole year is given as boxplots aggregated by the main industry groups (\ref{fig:boxplots}). Seasonal variation of the electricity demand differing by industry group is shown in Figure \ref{fig:trendlines}.
+The following figures shows the resulting electricity profiles. The temporal variation differs quite a lot. On the y-axis there is the share of electricity consumption in each hour of the yearly consumption. Thus, the boxplots (Figure \ref{fig:boxplots} show the temporal variablity. As expected, the temporal variability is highest for agriculture lowest for the production working in triple shift. Looking at the yearly variation (Figure \ref{fig:trendlines}), agriculture shows a high variation.
 
 \begin{figure}[H]
 \centering
@@ -405,11 +405,11 @@ The following figures show the variability of the resulting electricity profiles
 \label{fig:trendlines}
 \end{figure}
 
-\subsubsection{Demand profiles: Space heat}
+\subsubsection{Demand profiles: Space Heat}
 
 \textit{Take text from conference paper how heat profiles are derived, short.}
 
-Figure \ref{fig:heat_space_year} and \ref{fig:heat_space_week} show the derived profiles of space heating. There is a clear indication of the seasonal and the weekly variation.
+For space heat, there is a clear indication of the seasonal and the weekly variation. The expected seasonal variation can be seen in Figure \ref{fig:heat_space_year}. On a weekly basis (\ref{fig:heat_space_week}), as expected, the triple shift production sector shows the smallest variation.
 
 \begin{figure}[H]
 \centering
@@ -426,7 +426,7 @@ Figure \ref{fig:heat_space_year} and \ref{fig:heat_space_week} show the derived 
 \end{figure}
 
 \subsubsection{Demand profiles: Process heat}
-For process heating the variation due to work hours according to holidays (Figure \ref{fig:heat_process_year} and due to the weekly routine (Figure \ref{fig:heat_process_week} is clearly distinguishable.
+For process heat, the yearly picture (Figure \ref{fig:heat_process_year} supports the approach of utilizing real data instead of constructed profiles, since these specific shape demonstrates that holidays have a huge impact on the demand: During Easter, Summer and Christmans holidays, the demand is significantly lower. For energy system analysis all these special situations are especially interesting since they could cause special situation of oversupply, negative prices, etc. Figure \ref{fig:heat_process_year} illustrates the different weekly routine of triple, double and single shift production and the subsequent differences in energy demand profiles. 
 
 \begin{figure}[H]
 \centering
@@ -482,27 +482,45 @@ Yearly electricity demand and hourly profiles just have to be defined on a regio
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Decarbonisation option potentials}
-\textit{maybe a table with the different options and if they are applicable for process heat high, low and space heat and make an indication if they are rather expensive or rather cheap / subsection could also be before geographical subsection}
 
+\textit{maybe a table with the different options and if they are applicable for process heat high, low and space heat and make an indication if they are rather expensive or rather cheap / subsection could also be before geographical subsection}
+% Biomass: get price range and maybe the potential for DK?
+% Biomass: see VE til process for biomass cost assumption
 \begin{table}
+\small{
 \begin{tabular}{l | c | c | c | c}
-Decarbonisation category & Space heat & Proces heat low & Process heat high & Electricity \\
+Decarbonisation & Space heat & Proces heat & Process heat & Electricity \\
+category && low & high & \\
 \hline \hline
-Energy savings & \textit{rough estimate of what is possible?} & \textit{rough estimate of what is possible?} & \textit{rough estimate of what is possible?} & \textit{rough estimate of what is possible?}\\
-Excess heat usage & na & if user in vicinity or in DH-area & if user in vicinity or in DH-area & na\\
-District heat & if located in DH-area & if located in DH-area; heat pump required & na & na \\
-Electrification & Heat pump & Heat pump or electric heat & Electric heat & na\\
-Biomass & price range; restricted potential & \textit{maybe info from VEtilProcess?}; price range: \textit{add range and sources}; restricted potential & same as for PHL & decided on energy system level \\
-Biogas & vicinity to source required & depending on devices \textit{gas quality issue?} & depending on devices \textit{gas quality issue?} & decided on energy system level \\
-Renewable gas & Euro/GJ \textit{add Idas price} & Euro/GJ & Euro/GJ & decided on system level\\
+Energy savings & \textit{rough potential} & \textit{rrough potential} & \textit{rough potential} & \textit{rough potential}\\
+& estimate & estimate & estimate & estimate\\
+Excess heat & na & if in DH-area & if in DH-area & na\\
+usage &&&&\\
+District heat & if in DH-area & if in DH-area; & na & na \\
+&& heat pump required &&\\
+Electrification & Heat pump & Heat pump or & Electric heat & na\\
+&& electric heat &&\\
+Biomass & price range: & price range: & same as for PHL & main energy\\
+& restricted potential: & restricted potential: && system\\
+Biogas & if close to source & dep. on devices/ & dep. on devices/ & main energy\\
+&& gas qulaity & gas quality & system\\
+Renewable gas & Euro/GJ & Euro/GJ & Euro/GJ & decided on\\
+& \textit{add Idas price} &&& system level\\
 \end{tabular}
 \caption{Overview of decarbonisation options in industrial energy use}
 \label{tab:temperature_levels} 
+}
 \end{table}
 
 Heat pumps play decisive roles as the overview table show. It has to be noted that it is decisive for the modelling to distinguish the technical properties and the coefficient of performance (COP) according on the application area. Heat pumps are available for different temperature levels and their COP differs depending on input and output temperature. From \cite{VM2015}, COP of heat pumps can be roughly derived per industry group by dividing the heat output by the electricity output. These numbers can be utilised as check values for the heat pumpt assumptions.
 
-As long as the industry receives electricity from the main grid, it depends on the electricity supply system how high the renewable share is in the electricity mix and how expensive the elctricity is. In the model maximising social welfare, saving options can thus directly compete costwise. This stresses the importance of modelling industry within the integrated energy system and not isolated. Saving options are a possibility in 
+As long as the industry receives electricity from the main grid, it depends on the electricity supply system how high the renewable share is in the electricity mix and how expensive the elctricity is. In the model maximising social welfare, saving options can thus directly compete costwise. This stresses the importance of modelling industry within the integrated energy system and not isolated.
+
+For electrification options, \textit{cite DGC-report} was taken as input. This study defines the electrification potential in shares for different technology types. It is based on a database including all gas appliances in Denmark with their installed capacity and amount of gas consumed yearly. In the background report, it is described which industry groups use which techology. The electrification potential is defined by the cubicmeter gas per year consumed. Processes that need a flame cannot be electrified. These are in Denmark for example \textit{Translate: This is Krympeplast, flammehærdning, glasfiberproduktion, skæring}. However, the percentage is rather low and just sums up to about 1~\% of gas usage in Denmark. Processes with high temperature are typically in \textit{Translate:teglværker, cementovne, glasindustrien samt ved produktion af isoleringsmaterialer I virksomheder med støbe- og smelteprocesser ses højtemperaturbrændere også} If high temperatures are transferred to heat by radiation and the \textit{translate: røggasserne ikke kommer i direkte kontakt med materialet i processen}, it is possible to replace the flame by electricity. However, \textit{translate: Ovne, der bruger røggasbortledningen som en del af varmefordelingen, fx forvarmning, kan også være problematiske}.
+Generally processes with require radiaton are straightforward to electrify. A large share of gas is utilized for hot water and damp for processes. These are for example required in \textit{Translate: Slagterier, fremstilling af olier og fedtstoffer, fremstilling af mejeriprodukter, fremstilling af færdige foderblandinger, fremstilling af fortykningsmidler (pektin) m.v.}. A direct change to electricity is not as straightforward as for radiation. A more detailed analysis of the circumstances and the temperatures would be required.
+In total, according to \cite{DGC2013a} 78-85~\% of the gas utilized in industry could be converted. There is some uncertainty especially about the hot water and damp generation, but for the preliminary analysis, it is assumed .......?
+
+The costs for switching to electricty is estimated in \cite{DGC2013b}, summarized for the same technology groups. The installation costs do not only include the appliance costs, but also the electricity grid connection or enforcment costs respectively. Matched to the industry grouping utilised in our analysis, this cost assumptions are utilised as input for the model.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
